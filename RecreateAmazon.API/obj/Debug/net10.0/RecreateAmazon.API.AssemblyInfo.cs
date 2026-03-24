@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RecreateAmazon.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d74c2261abcb2b52adaa731f387b1a11d76fd62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+939129f642446c34524d128a310f917dccabc6b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("RecreateAmazon.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RecreateAmazon.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

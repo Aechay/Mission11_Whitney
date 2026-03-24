@@ -14,16 +14,37 @@ public class HomeController : ControllerBase
     }
     
     [HttpGet("getBooks")]
-    public IActionResult GetBooks(int pageSize, int pageNumber, int orderBy)
+    public IActionResult GetBooks(int pageSize, int pageNumber, int orderBy, [FromQuery]List<string>? genres = null)
     {
-        var bookList = _context.Books.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-        if (orderBy == 1) {
-            bookList = _context.Books.OrderBy(x => x.Title).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-        } else if (orderBy == 2) {
-            bookList = _context.Books.OrderByDescending(x => x.Title).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        var query =  _context.Books.AsQueryable();
+
+        if (genres != null && genres.Any())
+        {
+            query = query.Where(x => genres.Contains(x.Category));
         }
-        var bookCount = _context.Books.Count();
+        
+        var bookList = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        if (orderBy == 1) {
+            bookList = query.OrderBy(x => x.Title).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        } else if (orderBy == 2) {
+            bookList = query.OrderByDescending(x => x.Title).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+        }
+        var bookCount = query.Count();
         var toReturn = new { booklist = bookList, count = bookCount };
         return Ok(toReturn);
+    }
+
+    [HttpGet("getGenres")]
+    public IActionResult GetGenres()
+    {
+        var genres = _context.Books.Select(x => x.Category).Distinct().ToList();
+        return Ok(genres);
+    }
+
+    [HttpGet("getBook")]
+    public IActionResult getBook(int bookId)
+    {
+        var book = _context.Books.Where(x => x.BookID == bookId).First();
+        return Ok(book);
     }
 }

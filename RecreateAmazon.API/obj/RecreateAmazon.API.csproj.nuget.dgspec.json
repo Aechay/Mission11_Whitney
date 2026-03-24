@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 11/RecreateAmazon.API/RecreateAmazon.API.csproj": {}
+    "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 12/Mission11_Whitney/RecreateAmazon.API/RecreateAmazon.API.csproj": {}
   },
   "projects": {
-    "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 11/RecreateAmazon.API/RecreateAmazon.API.csproj": {
+    "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 12/Mission11_Whitney/RecreateAmazon.API/RecreateAmazon.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 11/RecreateAmazon.API/RecreateAmazon.API.csproj",
+        "projectUniqueName": "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 12/Mission11_Whitney/RecreateAmazon.API/RecreateAmazon.API.csproj",
         "projectName": "RecreateAmazon.API",
-        "projectPath": "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 11/RecreateAmazon.API/RecreateAmazon.API.csproj",
+        "projectPath": "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 12/Mission11_Whitney/RecreateAmazon.API/RecreateAmazon.API.csproj",
         "packagesPath": "/Users/alijahwhitney/.nuget/packages/",
-        "outputPath": "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 11/RecreateAmazon.API/obj/",
+        "outputPath": "/Users/alijahwhitney/Library/CloudStorage/Box-Box/School/Winter 2026/IS 413/Mission 12/Mission11_Whitney/RecreateAmazon.API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/alijahwhitney/.nuget/NuGet/NuGet.Config"
