@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { buildApiUrl } from '../api';
 
 function BookFilter({
   selectedGenres,
@@ -12,7 +13,7 @@ function BookFilter({
   useEffect(() => {
     const fetchGenres = async () => {
       try {
-        const response = await fetch('https://localhost:5000/api/getGenres');
+        const response = await fetch(buildApiUrl('/getGenres'));
         const data: string[] = await response.json();
         setGenres(data);
       } catch (error) {

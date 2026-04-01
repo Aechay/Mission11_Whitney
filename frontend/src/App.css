@@ -79,7 +79,8 @@
 }
 
 .book-detail-page,
-.cart-page {
+.cart-page,
+.admin-books-page {
   margin-top: 1.5rem;
 }
 
@@ -178,7 +179,10 @@
 }
 
 .book-detail-actions,
-.cart-page-header {
+.cart-page-header,
+.admin-books-toolbar,
+.admin-form-actions,
+.admin-table-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -188,6 +192,51 @@
 
 .book-detail-actions {
   margin-top: 2rem;
+}
+
+.admin-books-layout {
+  display: grid;
+  grid-template-columns: minmax(19rem, 24rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.admin-form-panel {
+  max-width: none;
+  margin: 0;
+}
+
+.admin-form-control {
+  background: #161d29;
+  color: #f3f6fb;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.admin-form-control:focus {
+  background: #161d29;
+  color: #f3f6fb;
+  border-color: rgba(246, 196, 83, 0.8);
+  box-shadow: 0 0 0 0.25rem rgba(246, 196, 83, 0.18);
+}
+
+.admin-form-control::placeholder {
+  color: #7f8a98;
+}
+
+.admin-status-alert {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.18);
+}
+
+.admin-table-section {
+  min-width: 0;
+}
+
+.admin-table-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .book-action-button,
@@ -349,13 +398,20 @@
   }
 
   .book-detail-actions,
-  .cart-page-header {
+  .cart-page-header,
+  .admin-books-toolbar,
+  .admin-form-actions,
+  .admin-table-toolbar {
     align-items: stretch;
   }
 
   .book-action-button,
   .cart-page-button {
     width: 100%;
+  }
+
+  .admin-books-layout {
+    grid-template-columns: 1fr;
   }
 
   .book-quantity-input {

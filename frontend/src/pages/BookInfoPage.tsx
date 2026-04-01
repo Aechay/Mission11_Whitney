@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import type { Book } from '../types/book';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import BookHead from '../components/BookHead';
+import { buildApiUrl } from '../api';
 
 function BookInfoPage() {
   const [book, setBook] = useState<Book | null>(null);
@@ -13,9 +14,7 @@ function BookInfoPage() {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await fetch(
-          `https://localhost:5000/api/getBook?bookId=${bookId}`
-        );
+        const response = await fetch(buildApiUrl(`/getBook?bookId=${bookId}`));
         const data: Book = await response.json();
         setBook(data);
       } catch (error) {
@@ -30,7 +29,9 @@ function BookInfoPage() {
       <section className="app-shell py-5">
         <BookHead />
         <div className="container">
-          <div className="book-detail-panel book-detail-loading">Loading...</div>
+          <div className="book-detail-panel book-detail-loading">
+            Loading...
+          </div>
         </div>
       </section>
     );
@@ -73,14 +74,15 @@ function BookInfoPage() {
             </div>
             <div className="book-detail-meta-item">
               <p className="book-detail-meta-label mb-1">Price</p>
-              <p className="book-detail-meta-value mb-0">
-                ${price.toFixed(2)}
-              </p>
+              <p className="book-detail-meta-value mb-0">${price.toFixed(2)}</p>
             </div>
           </div>
 
           <div className="book-detail-controls">
-            <label htmlFor="book-quantity" className="form-label book-detail-label">
+            <label
+              htmlFor="book-quantity"
+              className="form-label book-detail-label"
+            >
               Quantity
             </label>
             <input

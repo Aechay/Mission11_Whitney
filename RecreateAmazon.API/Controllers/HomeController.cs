@@ -8,9 +8,9 @@ namespace RecreateAmazon.API.Controllers;
 public class HomeController : ControllerBase
 {
     private BookContext _context;
-    public HomeController(BookContext _temp)
+    public HomeController(BookContext temp)
     {
-        _context = _temp;
+        _context = temp;
     }
     
     [HttpGet("getBooks")]
@@ -42,9 +42,55 @@ public class HomeController : ControllerBase
     }
 
     [HttpGet("getBook")]
-    public IActionResult getBook(int bookId)
+    public IActionResult GetBook(int bookId)
     {
-        var book = _context.Books.Where(x => x.BookID == bookId).First();
+        var book = _context.Books.First(x => x.BookID == bookId);
         return Ok(book);
+    }
+
+    [HttpPost("book")]
+    public IActionResult PostBook([FromBody] Book book)
+    {
+        _context.Books.Add(book);
+        _context.SaveChanges();
+        return Ok(book);
+    }
+
+    [HttpPut("book")]
+    public IActionResult PutBook([FromBody] Book book)
+    {
+        try
+        {
+            var bookToUpdate = _context.Books.First(x => x.BookID == book.BookID);
+            bookToUpdate.Title = book.Title;
+            bookToUpdate.Author = book.Author;
+            bookToUpdate.Category = book.Category;
+            bookToUpdate.Publisher = book.Publisher;
+            bookToUpdate.ISBN = book.ISBN;
+            bookToUpdate.Classification = book.Classification;
+            bookToUpdate.PageCount = book.PageCount;
+            bookToUpdate.Price = book.Price;
+            _context.SaveChanges();
+            return Ok(book);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpDelete("book")]
+    public IActionResult DeleteBook(int bookId)
+    {
+        try
+        {
+            _context.Books.Remove(_context.Books.First(x => x.BookID == bookId));
+            _context.SaveChanges();
+            return Accepted();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

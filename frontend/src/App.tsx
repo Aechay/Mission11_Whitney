@@ -6,6 +6,7 @@ import CartPage from './pages/CartPage';
 import { CartProvider } from './context/CartContext';
 import BookInfoPage from './pages/BookInfoPage';
 import { useState } from 'react';
+import AdminBooksPage from './pages/AdminBooksPage';
 
 function App() {
   const [page, setPage] = useState(1);
@@ -31,10 +32,7 @@ function App() {
             />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/books/:bookId" element={<BookInfoPage />} />
-            <Route
-              path="/adminbooks"
-              element={<h1>Admin Books Page (To be implemented)</h1>}
-            />
+            <Route path="/adminbooks" element={<AdminBooksPage />} />
           </Routes>
         </Router>
       </CartProvider>

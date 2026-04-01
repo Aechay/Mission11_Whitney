@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Book } from '../types/book.ts';
 import { useNavigate } from 'react-router-dom';
+import { buildApiUrl } from '../api';
 
 interface BooksApiResponse {
   booklist: Book[];
@@ -41,7 +42,9 @@ function BookList({
 
       try {
         const response = await fetch(
-          `https://localhost:5000/api/getBooks?pageNumber=${page}&pageSize=${pageSize}&orderBy=${orderBy}${genreParams ? `&${genreParams}` : ''}`
+          buildApiUrl(
+            `/getBooks?pageNumber=${page}&pageSize=${pageSize}&orderBy=${orderBy}${genreParams ? `&${genreParams}` : ''}`
+          )
         );
         const data: BooksApiResponse = await response.json();
         setBooks(data.booklist);
