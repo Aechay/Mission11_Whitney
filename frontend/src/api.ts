@@ -1,5 +1,5 @@
 const configuredApiBaseUrl =
-  'mission13-whitney-backend-ffb2g0fmhkgcbdhm.centralus-01.azurewebsites.net';
+  'https://mission13-whitney-backend-ffb2g0fmhkgcbdhm.centralus-01.azurewebsites.net';
 
 const apiBaseUrl = configuredApiBaseUrl
   ? configuredApiBaseUrl.replace(/\/+$/, '')
