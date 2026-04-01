@@ -1,4 +1,5 @@
-const configuredApiBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const configuredApiBaseUrl =
+  'mission13-whitney-backend-ffb2g0fmhkgcbdhm.centralus-01.azurewebsites.net';
 
 const apiBaseUrl = configuredApiBaseUrl
   ? configuredApiBaseUrl.replace(/\/+$/, '')
