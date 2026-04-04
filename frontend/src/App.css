@@ -259,6 +259,14 @@
   min-width: 5.75rem;
 }
 
+.main-page-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.main-page-footer-copy {
+  color: #d6ddea;
+}
+
 .cart-action-cell {
   white-space: nowrap;
 }

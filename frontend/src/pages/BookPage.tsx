@@ -45,7 +45,9 @@ function BookPage({
 
     const { title, quantity } = toastState.cartToast;
     const quantityLabel = quantity === 1 ? 'copy' : 'copies';
-    setToastMessage(`Added ${quantity} ${quantityLabel} of "${title}" to your cart.`);
+    setToastMessage(
+      `Added ${quantity} ${quantityLabel} of "${title}" to your cart.`
+    );
     navigate(location.pathname, { replace: true, state: null });
   }, [location.pathname, location.state, navigate]);
 
@@ -121,6 +123,18 @@ function BookPage({
             </div>
           </div>
         </div>
+        <footer className="main-page-footer container mt-5 pb-4 text-center">
+          <p className="main-page-footer-copy mb-2">
+            Need to manage the catalog?
+          </p>
+          <button
+            type="button"
+            className="btn btn-outline-warning"
+            onClick={() => navigate('/adminbooks')}
+          >
+            Go to Admin Books
+          </button>
+        </footer>
       </section>
     </>
   );
